@@ -102,7 +102,9 @@ export class LinkedList {
     }
 
     if (index > currentIndex && currentNode === null) {
-      return "index is out of range";
+      console.error("index is out of range");
+
+      return console.error("Index out of bounds");
     }
     return this.insertAt(
       value,
@@ -118,14 +120,15 @@ export class LinkedList {
       this.head = currentNode.nextNode;
       return;
     }
-
     if (currentIndex === index) {
       prevNode.nextNode = currentNode.nextNode;
       return;
     }
 
-    if (index > currentIndex && currentNode == null) {
-      return "index is out of range";
+    if (index > currentIndex && currentNode.nextNode === null) {
+      return console.error(
+        "Index out of bounds. Please enter an existing index"
+      );
     }
 
     return this.removeAt(
