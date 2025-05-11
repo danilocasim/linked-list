@@ -1,13 +1,11 @@
 import { LinkedList } from "./linked-list.js";
 
 const list = new LinkedList();
-list.append("TITE");
-list.append(2);
-list.append("f");
-list.append("LOL");
-list.append("PUDAY");
-list.prepend("MAMAMO");
-list.prepend("PEPE");
-
-list.pop();
-console.log(list.toString());
+list.append("FIRST");
+list.append("SECOND");
+list.append("THIRD");
+list.append("FOURTH");
+list.append("FIFTH");
+list.append("SIXTH");
+list.removeAt(6);
+console.log(list);

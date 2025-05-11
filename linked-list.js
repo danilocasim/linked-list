@@ -84,4 +84,55 @@ export class LinkedList {
       stringifiedList + `(${current.value}) => `
     );
   }
+
+  insertAt(
+    value,
+    index,
+    currentIndex = 0,
+    prevNode = null,
+    currentNode = this.head
+  ) {
+    if (index === 0) {
+      this.prepend(value);
+      return;
+    }
+    if (currentIndex === index) {
+      prevNode.nextNode = new Node(value, currentNode);
+      return;
+    }
+
+    if (index > currentIndex && currentNode === null) {
+      return "index is out of range";
+    }
+    return this.insertAt(
+      value,
+      index,
+      currentIndex + 1,
+      currentNode,
+      currentNode.nextNode
+    );
+  }
+
+  removeAt(index, currentIndex = 0, prevNode = null, currentNode = this.head) {
+    if (index === 0) {
+      this.head = currentNode.nextNode;
+      return;
+    }
+
+    if (currentIndex === index) {
+      prevNode.nextNode = currentNode.nextNode;
+      return;
+    }
+
+    if (index > currentIndex && currentNode == null) {
+      return "index is out of range";
+    }
+
+    return this.removeAt(
+      index,
+      currentIndex + 1,
+      currentNode,
+      currentNode.nextNode
+    );
+  }
 }
